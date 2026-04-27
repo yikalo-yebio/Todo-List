@@ -2,11 +2,9 @@ function TodoListItem({todo}) {
     
 
     return (
-        <>
-        <li key={todo.id}>
+        <li>
           {todo.title}
         </li>
-        </>
     )
 }
 
