@@ -5,7 +5,6 @@ function TodoList({todoList}) {
 
      
   return (
-    <>
        <div>
           <ul>
             {todoList.map((todo) => (
@@ -13,7 +12,6 @@ function TodoList({todoList}) {
             ))}
           </ul>
        </div>
-    </>
   );
 }
 
