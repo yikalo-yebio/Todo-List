@@ -9,7 +9,7 @@ function TodoForm({ onAddTodo }) {
  const handleAddTodo = (event) => {
   event.preventDefault();
 
-  if (todoTitle) {
+  if (workingTodoTitle) {
     onAddTodo(workingTodoTitle);
     setWorkingTodoTitle("");
     inputRef.current.focus();
