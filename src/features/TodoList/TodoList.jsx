@@ -1,7 +1,7 @@
 import TodoListItem from "./TodoListItem";
 
 
-function TodoList({todoList , onCompleteTodo}) {
+function TodoList({todoList , onCompleteTodo , onUpdateTodo}) {
 
      
   return (
@@ -10,7 +10,7 @@ function TodoList({todoList , onCompleteTodo}) {
          ? (<p>Add todo above to get started</p>)
          : (<ul>
             {todoList.map((todo) => (
-              <TodoListItem key={todo.id} todo ={todo} onCompleteTodo ={onCompleteTodo}/>
+              <TodoListItem key={todo.id} todo ={todo} onCompleteTodo ={onCompleteTodo} onUpdateTodo={onUpdateTodo}/>
             ))}
           </ul>)}  
        </div>
