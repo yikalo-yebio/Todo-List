@@ -6,16 +6,17 @@ function TextInputWithLabel({
   value,
 }) {
   return (
-    <>
-      <label htmlFor={elementId}>{labelText}</label>
+    <div className="text-input-container">
+      <label htmlFor={elementId} className="text-input-label">{labelText}</label>
       <input
+        className="text-input"
         type="text"
         id={elementId}
         ref={ref}
         value={value}
         onChange={onChange}
       />
-    </>
+    </div>
   );
 }
 

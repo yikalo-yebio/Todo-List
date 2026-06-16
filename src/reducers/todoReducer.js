@@ -67,7 +67,7 @@ export function todoReducer(state, action) {
     case TODO_ACTIONS.ADD_TODO_START:
        return {
                 ...state,
-                todoList: [action.payload, ...state.todoList],
+                todoList: [...state.todoList, action.payload],
               };
     case TODO_ACTIONS.ADD_TODO_SUCCESS:
        return {
@@ -111,9 +111,9 @@ export function todoReducer(state, action) {
        return {
                 ...state,
                 todoList: state.todoList.map(todo =>
-                  todo.id === action.payload.id
-                  ? { ...todo, ...action.payload}
-                  : todo
+                todo.id === action.payload.id
+                ? { ...todo, title: action.payload.title }
+                : todo
                 )
               };
     case TODO_ACTIONS.UPDATE_TODO_SUCCESS:

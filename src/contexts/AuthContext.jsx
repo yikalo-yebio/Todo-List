@@ -38,7 +38,7 @@ export function AuthProvider({ children }) {
       // Failure: Return error
       return {
         success: false,
-        error: `Authentication failed: ${data?.message}`,
+        error: data?.message || 'Authentication failed',
       };
     }
   } catch (error) {
@@ -57,7 +57,7 @@ const logout = async () => {
             return { success: true};
         }
 
-        const res = await fetch('/user/logoff', {
+        const res = await fetch('/api/users/logoff', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
