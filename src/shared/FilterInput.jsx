@@ -1,9 +1,10 @@
 function FilterInput({filterTerm, onFilterChange}) {
     
     return (
-        <div>
-            <label htmlFor='filterInput'>Search Todos:</label>
+        <div className="filterInput-container">
+            <label htmlFor='filterInput' className="filterInput-label">Search Todos:</label>
             <input 
+               className="filterInput-input"
                type="text" 
                name="" 
                id='filterInput' 

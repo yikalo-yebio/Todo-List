@@ -32,6 +32,8 @@ function TodosPage() {
     const debouncedFilterTerm = useDebounce(filterTerm, 300);
 
     useEffect(() => {
+
+      const controller = new AbortController();
        if (!token) return;
           async function fetchTodos(){
 
@@ -53,6 +55,7 @@ function TodosPage() {
                   "X-CSRF-TOKEN": token,
                 },
                 credentials: "include",
+                signal: controller.signal,
               })
 
                if (response.status === 401) {
@@ -84,6 +87,8 @@ function TodosPage() {
     }
 
         fetchTodos();
+
+    return () => controller.abort();
          
     }, [sortBy, sortDirection, debouncedFilterTerm, token]);
 
@@ -223,11 +228,13 @@ function TodosPage() {
   }
 
   return (
-    <div>
+  <div className="todos-page">
+    <div className="todo-controls">
         {filterError && (
-          <div>
-            <p>{filterError}</p>
-            <button onClick={() => 
+        <div className="filter-error">
+              <p className="filter-error-message">{filterError}</p>
+          <div className="filter-buttons-container">
+            <button className="filter-button" onClick={() => 
                  dispatch({
                     type: TODO_ACTIONS.CLEAR_ERROR,
                     payload: {
@@ -238,7 +245,7 @@ function TodosPage() {
                 } type="button">
                     Clear Filter Error
             </button>
-            <button onClick={() => {
+            <button className="filter-button" onClick={() => {
                 dispatch({
                    type: TODO_ACTIONS.RESET_FILTERS,
                        })
@@ -246,8 +253,9 @@ function TodosPage() {
                 Reset Filters
             </button>
           </div>
+        </div>
         )}
-        {isTodoListLoading && <p>Loading todos...</p>}
+        {isTodoListLoading && <p className="loading-message">Loading todos...</p>}
 
         <SortBy 
            sortBy={sortBy}
@@ -284,12 +292,15 @@ function TodosPage() {
              } 
         />
         <TodoForm onAddTodo={addTodo} />
+      </div>
+      <div className="todo-list-container">
         <TodoList 
             todoList={todoList} 
             onCompleteTodo={completeTodo} 
             onUpdateTodo={updateTodo} 
             dataVersion={dataVersion}
             statusFilter={statusFilter}/>
+      </div>
     </div>
   )
 }

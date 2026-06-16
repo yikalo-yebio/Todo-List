@@ -16,7 +16,7 @@ function Logoff() {
       const result = await logout();
 
          if (result.success) {
-              navigate('/login');
+              navigate('/login', { replace: true });
          } else{
               setError(result.error);
          }

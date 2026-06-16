@@ -55,7 +55,7 @@ function LoginPage() {
         <input 
             value={email}  
             type="email" 
-            name="" 
+            name="email" 
             id="email"
             onChange={(e) => {setEmail(e.target.value)}}
              />
@@ -63,7 +63,7 @@ function LoginPage() {
         <input 
             value={password} 
             type="password" 
-            name="" 
+            name="password" 
             id="password"
             onChange={(e) => {setPassword(e.target.value)}}
              />

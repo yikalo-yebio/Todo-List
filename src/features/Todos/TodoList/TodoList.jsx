@@ -11,7 +11,7 @@ function TodoList({
         }) {
 
   const filteredTodoList = useMemo(() => {
-       console.log(`Recalculating filtered todos (v${dataVersion}) - Status: ${statusFilter}`);
+
 
     let filteredTodos;
     switch (statusFilter) {
@@ -46,11 +46,11 @@ function TodoList({
   };
      
   return (
-       <div>
+       <div className="list-container">
          {filteredTodoList.todos.length === 0 ? (
-              <p>{getEmptyMessage()}</p>
+              <p className="empty-list-message">{getEmptyMessage()}</p>
               ) : (
-              <ul>
+              <ul className="lists">
                  {filteredTodoList.todos.map((todo) => (
                     <TodoListItem
                          key={todo.id}

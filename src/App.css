@@ -1,0 +1,173 @@
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.todos-page {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.todo-controls {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.todo-list-container {
+  flex: 1;
+}
+
+.filter-error {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-buttons-container {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+
+.loading-message {
+  font-weight: 600;
+}
+
+.form-container {
+  width: 100%;
+}
+
+.addForm-container {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+.add-button {
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.text-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.text-input {
+  width: 100%;
+  padding: 0.55rem;
+  box-sizing: border-box;
+}
+
+.filterInput-container,
+.sortBy-container,
+.sortOrder-container,
+.statusFilter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.filterInput-input,
+.sortBy-select,
+.sortOrder-select,
+.statusFilter-select {
+  padding: 0.55rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sort-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.sortBy-container,
+.sortOrder-container {
+  flex: 1;
+}
+
+.list-container {
+  width: 100%;
+}
+
+.lists {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-list-item {
+  list-style: none;
+}
+
+.todo-item-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.todo-checkbox-label {
+  display: flex;
+  align-items: center;
+}
+
+.todo-title {
+  cursor: pointer;
+  flex: 1;
+  word-break: break-word;
+}
+
+.cancel-btn,
+.update-btn {
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+}
+
+.empty-list-message {
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .todos-page {
+    flex-direction: column;
+  }
+
+  .todo-controls {
+    width: 100%;
+  }
+
+  .sort-container {
+    flex-direction: column;
+  }
+
+  .addForm-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .add-button {
+    width: 100%;
+  }
+
+  .todo-item-form {
+    align-items: center;
+  }
+}

@@ -15,9 +15,10 @@ function StatusFilter() {
   };
 
   return (
-    <div>
-      <label htmlFor='statusFilter'>Show:</label>
+    <div className='statusFilter-container'>
+      <label htmlFor='statusFilter' className="statusFilter-label">Show:</label>
       <select
+        className="statusFilter-select"
         id='statusFilter'
         value={currentStatus}
         onChange={(e) => handleStatusChange(e.target.value)}

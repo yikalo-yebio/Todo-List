@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function useEditableTitle(initialTitle) {
   const [isEditing, setIsEditing] = useState(false);
   const [workingTitle, setWorkingTitle] = useState(initialTitle);
+
+  useEffect(() => {
+    setWorkingTitle(initialTitle);
+  }, [initialTitle]);
 
   const startEditing = () => {
     setWorkingTitle(initialTitle);
